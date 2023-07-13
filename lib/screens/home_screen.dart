@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 //local imports
 import '../widgets/custom_app_bar.dart';
@@ -24,11 +25,7 @@ class HomeScreen extends StatelessWidget {
                       splashColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onPressed: () {
-                        Navigator.of(context).push(PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  const SearchScreen(),
-                        ));
+                        Navigator.of(context).push(PageTransition(child: const SearchScreen(), type: PageTransitionType.fade));
                       },
                       icon: const ImageIcon(AssetImage('assets/search.png'))),
                   IconButton(

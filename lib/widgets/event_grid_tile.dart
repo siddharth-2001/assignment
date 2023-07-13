@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:page_transition/page_transition.dart';
 
 //local imports
 import '../models/event.dart';
@@ -19,10 +20,7 @@ class EventGridTile extends StatelessWidget {
     final alternateTextColor = HexColor('#747688');
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              EventDetailScreen(event: event),
-        ));
+        Navigator.of(context).push(PageTransition(child: EventDetailScreen(event: event), type: PageTransitionType.fade));
       },
       child: Container(
         width: 327,
